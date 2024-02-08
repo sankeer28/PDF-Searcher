@@ -1,4 +1,4 @@
-# PDF Searcher 🔍
+# [PDF Searcher 🔍](https://sankeer28.github.io/PDF-Searcher/)
 
 PDF Searcher is a web-based tool that allows users to search for specific phrases or text within multiple PDF files simultaneously. It provides a user-friendly interface for uploading PDF files, configuring search options, and viewing search results.
 
@@ -21,8 +21,7 @@ PDF Searcher is a web-based tool that allows users to search for specific phrase
 - JavaScript
 - PDF.js Library
 
-## Demo
-[Link to live demo](#) 
+## [Click me to go to site](https://sankeer28.github.io/PDF-Searcher/)
 
 
 ## License
