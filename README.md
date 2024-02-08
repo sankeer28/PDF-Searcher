@@ -6,7 +6,7 @@ PDF Searcher is a web-based tool that allows users to search for specific phrase
 - **File Upload:** Easily upload multiple PDF files
 - **Search Options:** Configure search settings such as case sensitivity and context length.
 - **Very Fast:** Results within seconds
-- **Search Results:** View search results with glowing highlighted matches and context information.
+- **Search Results:** Featuring highlighted matches with glowing effects. Context information, such as the page number, PDF name, and an adjustable preview length.
 
 ## How to Use
 1. **Upload Files:** Click on the "Choose Files" button to select PDF files for searching.
