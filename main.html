@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Searcher 🔍</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1 style="text-align: center;">PDF Searcher 🔍</h1>
+    <nav>
+        <button id="githubButton">GitHub</button>
+        <input type="file" id="fileUpload" multiple />
+        <label for="fileUpload" class="custom-file-upload">Choose Files</label>
+    </nav>
+    <div id="fileNames"></div>
+    <div id="searchOptions">
+        <div class="optionContainer">
+            <button id="caseSensitive">Case Sensitive</button>
+        </div>
+        <div class="optionContainer">
+            <label for="contextLength">Context Length:</label>
+            <input type="number" id="contextLength" value="150" />
+        </div>
+        <div class="optionContainer">
+            <div id="presetButtons">
+                <button onclick="setContainerWidth('700px')">half width</button>
+                <button onclick="setContainerWidth('100%')">full width</button>
+            </div>
+            
+
+            
+        </div>
+    </div>
+    
+    
+    
+    <div id="searchBar">
+        <input type="text" id="searchQuery" placeholder="Enter search query" />
+        <button onclick="handleSearch()">Search 🔍</button>
+    </div>
+    <div id="results"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
