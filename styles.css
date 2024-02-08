@@ -14,12 +14,39 @@ button,
     border-radius: 10px; 
 }
 
+#contextLength {
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 0; 
+}
+
+#contextLength button {
+    border-radius: 0; 
+}
+
+#submitContextLength {
+    border-radius: 0; 
+}
+
+
+#caseSensitive {
+    width: 100%;
+    padding: 10px;
+}
+
+#submitContextLength {
+    margin-right: 10px; 
+}
+
 button:hover,
 .custom-file-upload:hover {
     background-color: #7f82ab;
     color: white;
     box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }
+
+
 
 input[type="text"],
 input[type="number"],

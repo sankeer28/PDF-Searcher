@@ -1,4 +1,5 @@
 let documents = [];
+
 function updateFileLabel() {
     let fileInput = document.getElementById('fileUpload');
     let fileCount = fileInput.files.length;
@@ -38,6 +39,10 @@ document.getElementById('caseSensitive').addEventListener('click', function() {
     handleSearch(); 
 });
 
+document.getElementById('submitContextLength').addEventListener('click', function() {
+    handleSearch(); 
+});
+
 function handleSearch() {
     let query = document.getElementById('searchQuery').value;
     let caseSensitive = document.getElementById('caseSensitive').classList.contains('active');
@@ -73,7 +78,6 @@ function handleSearch() {
     }
 }
 
-
 updateFileLabel();
 
 document.getElementById('githubButton').addEventListener('click', function() {
@@ -86,6 +90,3 @@ function setContainerWidth(width) {
     container.style.marginLeft = 'auto'; 
     container.style.marginRight = 'auto'; 
 }
-
-
-
