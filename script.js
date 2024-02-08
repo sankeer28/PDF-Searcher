@@ -20,12 +20,12 @@ document.getElementById('fileUpload').addEventListener('change', function() {
                 for (let j = 1; j <= numPages; j++) {
                     promises.push(pdf.getPage(j).then(function(page) {
                         return page.getTextContent().then(function(textContent) {
-                            return textContent.items.map(function(item) { return item.str; }).join(' ');
+                            return { text: textContent.items.map(function(item) { return item.str; }).join(' '), page: j };
                         });
                     }));
                 }
                 Promise.all(promises).then(function(texts) {
-                    documents.push({name: file.name, text: texts.join('\n')});
+                    documents.push({name: file.name, text: texts});
                     document.getElementById('fileNames').textContent += file.name + '\n';
                 });
             });
@@ -53,26 +53,29 @@ function handleSearch() {
 
     for (let i = 0; i < documents.length; i++) {
         let doc = documents[i];
-        let pos;
-        let start = 0;
-        while (true) {
-            if (caseSensitive) {
-                pos = doc.text.indexOf(query, start);
-            } else {
-                pos = doc.text.toLowerCase().indexOf(query.toLowerCase(), start);
-            }
-            if (pos !== -1) {
-                let contextStart = Math.max(0, pos - contextLength);
-                let contextEnd = Math.min(doc.text.length, pos + query.length + contextLength);
-                let resultText = doc.text.substring(contextStart, contextEnd);
-                let regex = new RegExp(query, caseSensitive ? "" : "i");
-                resultText = resultText.replace(regex, '<span class="highlight">$&</span>');
-                let resultDiv = document.createElement('div');
-                resultDiv.innerHTML = '<span class="bold">' + doc.name + ':</span> ' + resultText;
-                resultsDiv.appendChild(resultDiv);
-                start = pos + query.length; 
-            } else {
-                break;
+        for (let j = 0; j < doc.text.length; j++) {
+            let text = doc.text[j].text;
+            let pos;
+            let start = 0;
+            while (true) {
+                if (caseSensitive) {
+                    pos = text.indexOf(query, start);
+                } else {
+                    pos = text.toLowerCase().indexOf(query.toLowerCase(), start);
+                }
+                if (pos !== -1) {
+                    let contextStart = Math.max(0, pos - contextLength);
+                    let contextEnd = Math.min(text.length, pos + query.length + contextLength);
+                    let resultText = text.substring(contextStart, contextEnd);
+                    let regex = new RegExp(query, caseSensitive ? "" : "i");
+                    resultText = resultText.replace(regex, '<span class="highlight">$&</span>');
+                    let resultDiv = document.createElement('div');
+                    resultDiv.innerHTML = '<span class="bold">' + doc.name + ' (Page ' + doc.text[j].page + '):</span> ' + resultText;
+                    resultsDiv.appendChild(resultDiv);
+                    start = pos + query.length; 
+                } else {
+                    break;
+                }
             }
         }
     }
