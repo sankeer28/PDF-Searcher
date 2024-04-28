@@ -23,6 +23,3 @@ PDF Searcher is a web-based tool that allows users to search for specific phrase
 
 ## [Click me to go to site](https://sankeer28.github.io/PDF-Searcher/)
 
-
-## License
-This project is licensed under the [GNU License](LICENSE).
