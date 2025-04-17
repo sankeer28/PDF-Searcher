@@ -21,5 +21,4 @@ PDF Searcher is a web-based tool that allows users to search for specific phrase
 - JavaScript
 - PDF.js Library
 
-## [Click me to go to site](https://sankeer28.github.io/PDF-Searcher/)
 
